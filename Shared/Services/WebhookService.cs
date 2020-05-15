@@ -43,7 +43,7 @@ namespace Shared.Services
         }
         #endregion
 
-        public async Task<HttpResponseMessage> Send(string content, string username = null, string avatarUrl = null, bool isTTS = false, List<Embed> embeds = null)
+        public async Task<HttpResponseMessage> SendAsync(string content, string username = null, string avatarUrl = null, bool isTTS = false, List<Embed> embeds = null)
         {
             webhookItem.Content = content;
             webhookItem.Username = username;
@@ -61,14 +61,14 @@ namespace Shared.Services
             return await httpClient.PostAsync(webhookUrl, stringContent);
         }
 
-        public async Task<HttpResponseMessage> Send(UpdatesPage latestPage)
+        public async Task<HttpResponseMessage> SendAsync(UpdatesPage latestPage)
         {
-            return await Send(BuildEmbedCollection(latestPage));
+            return await SendAsync(BuildEmbedCollection(latestPage));
         }
 
-        public async Task<HttpResponseMessage> Send(List<Embed> embedInfo)
+        public async Task<HttpResponseMessage> SendAsync(List<Embed> embedInfo)
         {
-            return await Send(string.Empty, null, null, false, embedInfo);
+            return await SendAsync(string.Empty, null, null, false, embedInfo);
         }
 
         public List<Embed> BuildEmbedCollection(List<UpdatesPage> embedData)

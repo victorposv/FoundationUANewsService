@@ -28,7 +28,7 @@ namespace Requester
             configuration = configurationService;
         }
 
-        public async Task<TelegramData> GetLastCreatedPage()
+        public async Task<TelegramData> GetLastCreatedPageAsync()
         {
             string requestContent = string.Empty;
             TelegramData result = null;
@@ -52,7 +52,7 @@ namespace Requester
             return result;
         }
 
-        public async Task<Embed> GetLastUpdatedPage()
+        public async Task<Embed> GetLastUpdatedPageAsync()
         {
             string requestContent = string.Empty; 
             Embed result = null;
@@ -80,7 +80,7 @@ namespace Requester
         /// Send message to Discord bot
         /// </summary>
         /// <param name="info"></param>
-        public async void SendMessage(Embed info)
+        public async Task SendMessageAsync(Embed info)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(info), Encoding.UTF8, "application/json");
 
@@ -98,7 +98,7 @@ namespace Requester
         /// Send message to Telegram bot
         /// </summary>
         /// <param name="info"></param>
-        public async void SendMessage(TelegramData info)
+        public async Task SendMessageAsync(TelegramData info)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(info), Encoding.UTF8, "application/json");
 

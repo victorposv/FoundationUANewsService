@@ -45,7 +45,7 @@ namespace NewsBotBackend.Controllers
         {
             Console.WriteLine("Updating Telegram");
 
-            telegramService.PostNews(value);
+            telegramService.PostNewsAsync(value);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
-
+using System.Threading.Tasks;
 using Telegram;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -27,7 +27,7 @@ namespace Shared.Services
             this.channelName = channelName;
         }
 
-        public async void PostNews(TelegramData newPage)
+        public async Task PostNewsAsync(TelegramData newPage)
         {
             StringBuilder builder = new StringBuilder();
             InputOnlineFile inputOnlineFile;

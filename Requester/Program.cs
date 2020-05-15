@@ -19,13 +19,13 @@ namespace Requester
 
             Console.WriteLine("Requester online");
 
-            var lastUpdatedPage = backendService.GetLastUpdatedPage().Result;
+            var lastUpdatedPage = backendService.GetLastUpdatedPageAsync().Result;
             //var lastCreatedPage = BackendService.GetLastCreatedPage().Result;
 
             while (true)
             {
-                var updated = backendService.GetLastUpdatedPage().Result;
-                var created = backendService.GetLastCreatedPage().Result;
+                var updated = backendService.GetLastUpdatedPageAsync().Result;
+                var created = backendService.GetLastCreatedPageAsync().Result;
 
                 if (lastUpdatedPage != null || updated != null)
                 {
@@ -36,7 +36,7 @@ namespace Requester
 
                         Console.WriteLine("New page has been updated. Sending request.");
 
-                        backendService.SendMessage(lastUpdatedPage);
+                        backendService.SendMessageAsync(lastUpdatedPage);
                     }
                 }
 

@@ -51,7 +51,7 @@ namespace NewsBotBackend.Controllers
             
             Console.WriteLine("Updating Discord");
 
-            await webhookService.Send(embedCollection);
+            await webhookService.SendAsync(embedCollection);
         }
     }
 }
